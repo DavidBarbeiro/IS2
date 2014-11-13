@@ -25,6 +25,7 @@ public class TopicSubscriber implements MessageListener {
 	@PersistenceContext(name="TestPersistence")
 	EntityManager em;
 	
+	int test;
     /**
      * Default constructor. 
      */
