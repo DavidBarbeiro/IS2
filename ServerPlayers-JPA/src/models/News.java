@@ -34,6 +34,7 @@ public class News implements Serializable {
 	@Column(name="Section")
 	private String section;
 	
+	int test;
 
     @ManyToMany
     @JoinTable(name="news_has_authors", joinColumns=
