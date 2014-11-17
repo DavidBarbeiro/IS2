@@ -19,7 +19,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "section")
 @XmlType(propOrder = { "name", "link", "news_list" })
 public class NewsSection implements Serializable{
-    
     private static final long serialVersionUID = 9125277018717732648L;
     
     private String name;

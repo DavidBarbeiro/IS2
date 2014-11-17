@@ -22,7 +22,7 @@
 	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-commons-annotations-4.0.5.Final.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-core-4.3.6.Final.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-entitymanager-4.3.6.Final.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-entitymanager-4.3.6.Final.jar" sourcepath="C:/Users/David/.sourceattacher/hibernate-entitymanager-4.3.6.Final-sources.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="lib/jandex-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="lib/javassist-3.18.1-GA.jar"/>

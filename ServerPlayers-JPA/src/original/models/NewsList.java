@@ -20,7 +20,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "news_list")
 public class NewsList implements Serializable{
-    
     private static final long serialVersionUID = 9125277018717732648L;
     
     @XmlElement(name = "count")

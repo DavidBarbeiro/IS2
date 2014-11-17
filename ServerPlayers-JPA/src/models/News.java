@@ -23,8 +23,12 @@ public class News implements Serializable {
 	private String title;
 	@Column(name="Link",columnDefinition="TEXT")
 	private String link;
-	@Column(name="Highlights",columnDefinition="TEXT")
-	private String highlights;
+	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name="newsHighlights", joinColumns=@JoinColumn(name="news_id"))
+	@Column(name = "highlight")
+	private List<String> highlights;
+	
 	@Column(name="Text_content",columnDefinition="TEXT")
 	private String text;
 	@Temporal(TemporalType.TIMESTAMP)
@@ -33,21 +37,14 @@ public class News implements Serializable {
 	private String mediaURL;
 	@Column(name="Section")
 	private String section;
-	
-	int test;
 
     @ManyToMany
     @JoinTable(name="news_has_authors", joinColumns=
     {@JoinColumn(name="news_id")}, inverseJoinColumns=
-      {@JoinColumn(name="authors_id")})
+      {@JoinColumn(name="author_id")})
 	private List<Author> authors;
 	
-	public List<Author> getAuthors() {
-		return authors;
-	}
-	public void setAuthors(List<Author> authors) {
-		this.authors = authors;
-	}
+
 	public News() {
 		super();
 	}   
@@ -65,13 +62,7 @@ public class News implements Serializable {
 	public void setLink(String link) {
 		this.link = link;
 	}   
-	public String getHighlights() {
-		return this.highlights;
-	}
-
-	public void setHighlights(String highlights) {
-		this.highlights = highlights;
-	}   
+   
   
 	public String getText() {
 		return this.text;
@@ -99,6 +90,18 @@ public class News implements Serializable {
 	}
 	public void setSection(String section){
 		this.section=section;
+	}
+	public List<String> getHighlights() {
+		return highlights;
+	}
+	public void setHighlights(List<String> highlights) {
+		this.highlights = highlights;
+	}
+	public List<Author> getAuthors() {
+		return authors;
+	}
+	public void setAuthors(List<Author> authors) {
+		this.authors = authors;
 	}
    
 }

@@ -11,6 +11,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -27,7 +29,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlRootElement(name = "news")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class News implements Serializable {
-    
     private static final long serialVersionUID = 9125277018717732648L;
     
     @XmlElement(name = "title", required = true)
@@ -37,29 +38,34 @@ public class News implements Serializable {
     private String link;
     
     @XmlElement(name = "highlights")
-    private String highlights;
+    private Highlights highlights;
     
     @XmlSchemaType(name = "dateTime")
     protected Date date;
     
-    @XmlElement(name = "author")
-    private String author;
+    @XmlElement(name = "authors")
+    private Authors authors;
     
     @XmlElement(name = "text", required = true)
     private String text;
     
-    @XmlElement(name = "media_urls")
+    @XmlElement(name = "media_url")
     private String media_url;
+    
+    public News(){
+        authors=new Authors();
+        highlights=new Highlights();
+    }
     
     public String getText() {
         return text;
     }
 
-    public String getHighlights() {
+    public Highlights getHighlights() {
         return highlights;
     }
 
-    public void setHighlights(String highlights) {
+    public void setHighlights(Highlights highlights) {
         this.highlights = highlights;
     }
 
@@ -99,12 +105,12 @@ public class News implements Serializable {
                    return result;
     }
     
-    public String getAuthor() {
-        return author;
+    public Authors getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthors(Authors authors) {
+        this.authors = authors;
     }
     
     public void setMediaUrl(String media_url) {

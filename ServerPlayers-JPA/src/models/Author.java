@@ -18,15 +18,18 @@ public class Author implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	@Column(name="Name")
+	@Column(name="Name",unique=true)
 	private String name;
 	
 	@ManyToMany(mappedBy="authors")
 	private List<News> news;
 	
-
 	public Author() {
 		super();
+	} 
+	public Author(String name) {
+		super();
+		this.name=name;
 	}   
 	public String getName() {
 		return this.name;
